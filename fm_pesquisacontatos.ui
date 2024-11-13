@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fm_pesquisacontatos</class>
+ <widget class="QDialog" name="fm_pesquisacontatos">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background:#4169E1;  /* Gradiente de cinza para branco */
+border: none;  /* Remove a borda */
+
+</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>671</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox {
+    background: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); /* Sombra forte */
+}
+
+QGroupBox:title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 5px;
+}
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QTableWidget" name="tw_contatos">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>150</y>
+      <width>611</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #FFFFFF;
+
+</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>450</y>
+      <width>191</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pb_excluir">
+       <property name="styleSheet">
+        <string notr="true"> border: 1px solid #888888; 
+       border-radius: 6px;
+       padding: 5px;
+       background-color: #d3d3d3;
+      color: #333333;</string>
+       </property>
+       <property name="text">
+        <string>Excluir</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>551</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">
+    background: #FFFFFF;
+  
+</string>
+       </property>
+       <property name="text">
+        <string>Pesquisar nome</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="txt_pesquisarnome">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+    padding: 3px 15px;             /* Espaçamento interno */
+    border-radius: 15px;            /* Bordas arredondadas */
+    border: 2px solid #ccc;         /* Borda com cor leve */
+    font-size: 16px;                /* Tamanho da fonte */
+    background-color: white;        /* Cor de fundo */
+}
+
+QLineEdit:focus {
+    border: 2px solid #007bff;      /* Cor da borda ao focar */
+    background-color: #f0f8ff;      /* Cor de fundo ao focar */
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pb_pesquisar">
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid #888888;
+border-radius: 6px;
+padding: 10px 20px; 
+background-color: #d3d3d3;
+color: #333333;</string>
+       </property>
+       <property name="text">
+        <string>Pesquisar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
