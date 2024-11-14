@@ -1,6 +1,6 @@
 #ifndef FM_PESQUISACONTATOS_H
 #define FM_PESQUISACONTATOS_H
-
+#include "fm_novocontato.h"
 #include <QDialog>
 
 namespace Ui {
@@ -20,6 +20,8 @@ private slots:
     void on_pb_excluir_clicked();
 
     void on_pb_pesquisar_clicked();
+
+    void on_pb_editar_clicked();
 
 private:
     Ui::fm_pesquisacontatos *ui;

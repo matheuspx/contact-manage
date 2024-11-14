@@ -86,6 +86,20 @@ QGroupBox:title {
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="pb_editar">
+       <property name="styleSheet">
+        <string notr="true"> border: 1px solid #888888; 
+       border-radius: 6px;
+       padding: 5px;
+       background-color: #d3d3d3;
+      color: #333333;</string>
+       </property>
+       <property name="text">
+        <string>Adicionar</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">

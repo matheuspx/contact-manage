@@ -5,7 +5,8 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
-#include "fm_principal.h"
+#include "fm_pesquisacontatos.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class janelalogin;

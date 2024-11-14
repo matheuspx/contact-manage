@@ -11,20 +11,17 @@ CONFIG += c++17
 SOURCES += \
     fm_novocontato.cpp \
     fm_pesquisacontatos.cpp \
-    fm_principal.cpp \
-    main.cpp \
-    janelalogin.cpp
+    janelalogin.cpp \
+    main.cpp
 
 HEADERS += \
     fm_novocontato.h \
     fm_pesquisacontatos.h \
-    fm_principal.h \
     janelalogin.h
 
 FORMS += \
     fm_novocontato.ui \
     fm_pesquisacontatos.ui \
-    fm_principal.ui \
     janelalogin.ui
 
 # Default rules for deployment.

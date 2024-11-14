@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     // Configura e abre o banco de dados
     QSqlDatabase bancoDeDados = QSqlDatabase::addDatabase("QSQLITE");
-    bancoDeDados.setDatabaseName("C:/Qt/maladesa/bancodedados.db");
+    bancoDeDados.setDatabaseName("C:/Users/000/Documents/agenda/agenda_db.db");
 
     // Verificar se o banco de dados foi aberto com sucesso
     if (!bancoDeDados.open()) {

@@ -8,6 +8,8 @@ fm_novoContato::fm_novoContato(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->text_tell->setInputMask("(00) 00000-0000");
+
     // Crie o efeito de sombra
     QGraphicsDropShadowEffect *shadowEffect = new QGraphicsDropShadowEffect(this);
     shadowEffect->setBlurRadius(10);      // Ajuste o nível de desfoque da sombra

@@ -66,7 +66,7 @@ void janelalogin::on_pushButton_clicked()
     if (query.exec()) {
         if (query.first()) {
             this->close();
-            fm_principal f_principal;
+            fm_pesquisacontatos f_principal;
             f_principal.setModal(true);
             f_principal.exec();
         } else {

@@ -2,6 +2,7 @@
 #include "ui_fm_pesquisacontatos.h"
 #include <QtSql>
 #include <QMessageBox>
+#include "fm_novocontato.h"
 
 fm_pesquisacontatos::fm_pesquisacontatos(QWidget *parent)
     : QDialog(parent)
@@ -57,49 +58,50 @@ fm_pesquisacontatos::~fm_pesquisacontatos()
 void fm_pesquisacontatos::on_pb_excluir_clicked()
 {
     int linha = ui->tw_contatos->currentRow();
-    int id=ui->tw_contatos->item(linha,0)->text().toInt();
-    QSqlQuery query;
-    query.prepare("delete from tb_contatos where id_contato="+QString::number(id));
-    if(query.exec()){
-        QMessageBox::information(this,"", "Registro excluido");
-           ui->tw_contatos->removeRow(linha);
-    }else{
-        QMessageBox::warning(this, "Erro","Erro ao excluir registro");
+    if (linha == -1) {
+        QMessageBox::warning(this, "Erro", "Por favor, selecione um registro para excluir.");
+        return;
     }
 
-}
+    int id = ui->tw_contatos->item(linha, 0)->text().toInt();
+    QSqlQuery query;
+    query.prepare("DELETE FROM tb_contatos WHERE id_contato = :id");
+    query.bindValue(":id", id);
 
+    if (query.exec()) {
+        QMessageBox::information(this, "", "Registro excluído com sucesso.");
+        ui->tw_contatos->removeRow(linha);
+    } else {
+        QMessageBox::warning(this, "Erro", "Erro ao excluir registro: " + query.lastError().text());
+    }
+}
 
 void fm_pesquisacontatos::on_pb_pesquisar_clicked()
 {
-     {
-        // Obtenha o texto digitado no campo de pesquisa
-        QString nomeProcurado = ui->txt_pesquisarnome->text();
+    QString nomeProcurado = ui->txt_pesquisarnome->text();
+    QSqlQuery query;
+    query.prepare("SELECT * FROM tb_contatos WHERE nome_contato LIKE :nome");
+    query.bindValue(":nome", "%" + nomeProcurado + "%");
 
-        // Prepare a consulta SQL para buscar o contato pelo nome
-        QSqlQuery query;
-        query.prepare("SELECT * FROM tb_contatos WHERE nome_contato LIKE :nome");
-        query.bindValue(":nome", "%" + nomeProcurado + "%");
+    if(query.exec()) {
+        ui->tw_contatos->setRowCount(0);
 
-        // Execute a consulta
-        if(query.exec()) {
-            // Limpe a tabela (caso esteja exibindo os dados nela)
-            ui->tw_contatos->setRowCount(0);
-
-            // Adicione os resultados da busca na tabela
-            int row = 0;
-            while(query.next()) {
-                ui->tw_contatos->insertRow(row);
-                ui->tw_contatos->setItem(row, 0, new QTableWidgetItem(query.value("id_contato").toString()));
-                ui->tw_contatos->setItem(row, 1, new QTableWidgetItem(query.value("nome_contato").toString()));
-                ui->tw_contatos->setItem(row, 2, new QTableWidgetItem(query.value("telefone_contato").toString()));
-                ui->tw_contatos->setItem(row, 3, new QTableWidgetItem(query.value("email_contato").toString()));
-                row++;
-            }
-        } else {
-            QMessageBox::warning(this, "Erro", "Erro ao buscar no banco de dados.");
+        int row = 0;
+        while(query.next()) {
+            ui->tw_contatos->insertRow(row);
+            ui->tw_contatos->setItem(row, 0, new QTableWidgetItem(query.value("id_contato").toString()));
+            ui->tw_contatos->setItem(row, 1, new QTableWidgetItem(query.value("nome_contato").toString()));
+            ui->tw_contatos->setItem(row, 2, new QTableWidgetItem(query.value("telefone_contato").toString()));
+            ui->tw_contatos->setItem(row, 3, new QTableWidgetItem(query.value("email_contato").toString()));
+            row++;
         }
+    } else {
+        QMessageBox::warning(this, "Erro", "Erro ao buscar no banco de dados: " + query.lastError().text());
     }
-
 }
 
+void fm_pesquisacontatos::on_pb_editar_clicked()
+{
+    fm_novoContato f_pesquisar;
+    f_pesquisar.exec();
+}
