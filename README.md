@@ -43,8 +43,7 @@ Este projeto é uma aplicação de agenda de contatos desenvolvida em C++ utiliz
 - **/db:** Banco de dados SQLite utilizado pela aplicação.
 
 ## Autor
-**Matheus Henri**  
-Desenvolvedor apaixonado por criação de soluções em C++ e design de interfaces intuitivas.  
+**Matheus Henrique**  
 [GitHub](https://github.com/matheuspx) | [LinkedIn](https://www.linkedin.com/in/matheus-henri-alcantara/)
 
 
